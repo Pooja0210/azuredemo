@@ -37,6 +37,19 @@
 						}
 					},
 					"enableStaging": false,
+					"logSettings": {
+						"enableCopyActivityLog": true,
+						"copyActivityLogSettings": {
+							"logLevel": "Warning",
+							"enableReliableLogging": false
+						},
+						"logLocationSettings": {
+							"linkedServiceName": {
+								"referenceName": "cdactivity_ls",
+								"type": "LinkedServiceReference"
+							}
+						}
+					},
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
@@ -159,7 +172,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "Json2",
+						"referenceName": "Json3",
 						"type": "DatasetReference"
 					}
 				]

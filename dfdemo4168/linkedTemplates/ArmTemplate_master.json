@@ -23,6 +23,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'sinklinked_adl'"
 		},
+		"cad_linkedservice_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'cad_linkedservice'"
+		},
 		"adls_sls_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
@@ -46,6 +50,10 @@
 		"sinklinked_adl_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "admin4168"
+		},
+		"cad_linkedservice_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -86,6 +94,9 @@
 					"sinklinked_adl_password": {
 						"value": "[parameters('sinklinked_adl_password')]"
 					},
+					"cad_linkedservice_accountKey": {
+						"value": "[parameters('cad_linkedservice_accountKey')]"
+					},
 					"adls_sls_properties_typeProperties_url": {
 						"value": "[parameters('adls_sls_properties_typeProperties_url')]"
 					},
@@ -103,10 +114,33 @@
 					},
 					"sinklinked_adl_properties_typeProperties_userName": {
 						"value": "[parameters('sinklinked_adl_properties_typeProperties_userName')]"
+					},
+					"cad_linkedservice_properties_typeProperties_url": {
+						"value": "[parameters('cad_linkedservice_properties_typeProperties_url')]"
 					}
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "dfdemo4168_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'dfdemo4168_ArmTemplate_0')]"
+			]
 		}
 	]
 }

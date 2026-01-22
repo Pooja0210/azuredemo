@@ -1,0 +1,209 @@
+{
+	"name": "copyanddeletepipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Activity1",
+				"description": "Copy data from one Blob container (source) to another (sink)\n",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Index",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Index']"
+								}
+							},
+							{
+								"source": {
+									"name": "Customer Id",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Customer Id']"
+								}
+							},
+							{
+								"source": {
+									"name": "First Name",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['First Name']"
+								}
+							},
+							{
+								"source": {
+									"name": "Last Name",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Last Name']"
+								}
+							},
+							{
+								"source": {
+									"name": "Company",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Company']"
+								}
+							},
+							{
+								"source": {
+									"name": "City",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['City']"
+								}
+							},
+							{
+								"source": {
+									"name": "Country",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Country']"
+								}
+							},
+							{
+								"source": {
+									"name": "Phone 1",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Phone 1']"
+								}
+							},
+							{
+								"source": {
+									"name": "Phone 2",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Phone 2']"
+								}
+							},
+							{
+								"source": {
+									"name": "Email",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Email']"
+								}
+							},
+							{
+								"source": {
+									"name": "Subscription Date",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Subscription Date']"
+								}
+							},
+							{
+								"source": {
+									"name": "Website",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Website']"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DelimitedText3",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Json2",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Activity2",
+				"description": "Deletes the original file from the source container after successful copy\n",
+				"type": "Delete",
+				"dependsOn": [
+					{
+						"activity": "Activity1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "Binary1",
+						"type": "DatasetReference"
+					},
+					"logStorageSettings": {
+						"linkedServiceName": {
+							"referenceName": "cdactivity_ls",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"enableLogging": true,
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
+						"enablePartitionDiscovery": false
+					}
+				}
+			}
+		],
+		"annotations": []
+	}
+}

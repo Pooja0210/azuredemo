@@ -1,0 +1,17 @@
+{
+	"name": "sinklinked_adl",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "sqlserverdemo4168.database.windows.net",
+			"database": "customerdemodb",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "admin4168",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEM4QTRBMjI2LTQwOTktNEI2Ny04MEVELTE1NUEwNkRERTUzQV80MGQ4MmYxYi0wOGZjLTQzZjAtYmQ3OS03MDBjNDg3ZjA4OWQiDQp9"
+		}
+	}
+}

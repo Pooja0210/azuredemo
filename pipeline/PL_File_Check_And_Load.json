@@ -46,7 +46,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@equals(activity('GM_Check_File').output.exists, true)",
+						"value": "@greater(length(activity('GM_Check_File').output.childItems), 0)",
 						"type": "Expression"
 					}
 				}
@@ -87,7 +87,10 @@
 									"storeSettings": {
 										"type": "AzureBlobFSReadSettings",
 										"recursive": true,
-										"wildcardFileName": "*Customers-100.csv",
+										"wildcardFileName": {
+											"value": "@item().name",
+											"type": "Expression"
+										},
 										"enablePartitionDiscovery": false
 									},
 									"formatSettings": {
@@ -292,14 +295,15 @@
 							"typeProperties": {
 								"source": {
 									"type": "AzureSqlSource",
-									"sqlReaderQuery": "SELECT COUNT(*) AS total_count FROM dbo.Customers;",
+									"sqlReaderQuery": "SELECT COUNT(*) AS total_count FROM dbo.Customers;\n",
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
 								"dataset": {
 									"referenceName": "DS_AzureSQL_Sink",
 									"type": "DatasetReference"
-								}
+								},
+								"firstRowOnly": true
 							}
 						}
 					]

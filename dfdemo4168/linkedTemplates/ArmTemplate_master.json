@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'adls_sls'"
 		},
+		"cad_linkedservice_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'cad_linkedservice'"
+		},
 		"cdactivity_ls_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'cdactivity_ls'"
@@ -23,11 +27,11 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'sinklinked_adl'"
 		},
-		"cad_linkedservice_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'cad_linkedservice'"
-		},
 		"adls_sls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
+		},
+		"cad_linkedservice_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
 		},
@@ -50,10 +54,6 @@
 		"sinklinked_adl_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "admin4168"
-		},
-		"cad_linkedservice_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -85,6 +85,9 @@
 					"adls_sls_accountKey": {
 						"value": "[parameters('adls_sls_accountKey')]"
 					},
+					"cad_linkedservice_accountKey": {
+						"value": "[parameters('cad_linkedservice_accountKey')]"
+					},
 					"cdactivity_ls_accountKey": {
 						"value": "[parameters('cdactivity_ls_accountKey')]"
 					},
@@ -94,11 +97,11 @@
 					"sinklinked_adl_password": {
 						"value": "[parameters('sinklinked_adl_password')]"
 					},
-					"cad_linkedservice_accountKey": {
-						"value": "[parameters('cad_linkedservice_accountKey')]"
-					},
 					"adls_sls_properties_typeProperties_url": {
 						"value": "[parameters('adls_sls_properties_typeProperties_url')]"
+					},
+					"cad_linkedservice_properties_typeProperties_url": {
+						"value": "[parameters('cad_linkedservice_properties_typeProperties_url')]"
 					},
 					"cdactivity_ls_properties_typeProperties_url": {
 						"value": "[parameters('cdactivity_ls_properties_typeProperties_url')]"
@@ -114,9 +117,6 @@
 					},
 					"sinklinked_adl_properties_typeProperties_userName": {
 						"value": "[parameters('sinklinked_adl_properties_typeProperties_userName')]"
-					},
-					"cad_linkedservice_properties_typeProperties_url": {
-						"value": "[parameters('cad_linkedservice_properties_typeProperties_url')]"
 					}
 				}
 			},

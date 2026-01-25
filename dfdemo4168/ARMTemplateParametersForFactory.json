@@ -17,6 +17,9 @@
 		"ls_adls_accountKey": {
 			"value": ""
 		},
+		"rawprocessedls_accountKey": {
+			"value": ""
+		},
 		"sinklinked_adl_password": {
 			"value": ""
 		},
@@ -30,6 +33,9 @@
 			"value": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
 		},
 		"ls_adls_properties_typeProperties_url": {
+			"value": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
+		},
+		"rawprocessedls_properties_typeProperties_url": {
 			"value": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
 		},
 		"sinklinked_adl_properties_typeProperties_server": {

@@ -23,6 +23,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_adls'"
 		},
+		"rawprocessedls_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'rawprocessedls'"
+		},
 		"sinklinked_adl_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'sinklinked_adl'"
@@ -40,6 +44,10 @@
 			"defaultValue": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
 		},
 		"ls_adls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
+		},
+		"rawprocessedls_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
 		},
@@ -94,6 +102,9 @@
 					"ls_adls_accountKey": {
 						"value": "[parameters('ls_adls_accountKey')]"
 					},
+					"rawprocessedls_accountKey": {
+						"value": "[parameters('rawprocessedls_accountKey')]"
+					},
 					"sinklinked_adl_password": {
 						"value": "[parameters('sinklinked_adl_password')]"
 					},
@@ -108,6 +119,9 @@
 					},
 					"ls_adls_properties_typeProperties_url": {
 						"value": "[parameters('ls_adls_properties_typeProperties_url')]"
+					},
+					"rawprocessedls_properties_typeProperties_url": {
+						"value": "[parameters('rawprocessedls_properties_typeProperties_url')]"
 					},
 					"sinklinked_adl_properties_typeProperties_server": {
 						"value": "[parameters('sinklinked_adl_properties_typeProperties_server')]"

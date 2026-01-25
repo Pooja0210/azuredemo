@@ -1,0 +1,19 @@
+{
+	"name": "ProcessedDStoJSON",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "rawprocessedls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "json",
+				"fileSystem": "processed"
+			}
+		},
+		"schema": {}
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"name": "csvparquetls",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
+		}
+	}
+}

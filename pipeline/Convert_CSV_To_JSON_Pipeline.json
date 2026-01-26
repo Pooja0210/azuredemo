@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "DS_raw_csv",
+						"referenceName": "DS_CSV_raw",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
@@ -111,11 +111,97 @@
 										"type": "JsonWriteSettings"
 									}
 								},
-								"enableStaging": false
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"mappings": [
+										{
+											"source": {
+												"name": "Index",
+												"type": "String"
+											},
+											"sink": {
+												"path": "$['Index']"
+											}
+										},
+										{
+											"source": {
+												"name": "User Id",
+												"type": "String"
+											},
+											"sink": {
+												"path": "$['User Id']"
+											}
+										},
+										{
+											"source": {
+												"name": "First Name",
+												"type": "String"
+											},
+											"sink": {
+												"path": "$['First Name']"
+											}
+										},
+										{
+											"source": {
+												"name": "Last Name",
+												"type": "String"
+											},
+											"sink": {
+												"path": "$['Last Name']"
+											}
+										},
+										{
+											"source": {
+												"name": "Sex",
+												"type": "String"
+											},
+											"sink": {
+												"path": "$['Sex']"
+											}
+										},
+										{
+											"source": {
+												"name": "Email",
+												"type": "String"
+											},
+											"sink": {
+												"path": "$['Email']"
+											}
+										},
+										{
+											"source": {
+												"name": "Phone",
+												"type": "String"
+											},
+											"sink": {
+												"path": "$['Phone']"
+											}
+										},
+										{
+											"source": {
+												"name": "Date of birth",
+												"type": "String"
+											},
+											"sink": {
+												"path": "$['Date of birth']"
+											}
+										},
+										{
+											"source": {
+												"name": "Job Title",
+												"type": "String"
+											},
+											"sink": {
+												"path": "$['Job Title']"
+											}
+										}
+									]
+								}
 							},
 							"inputs": [
 								{
-									"referenceName": "DS_raw_csv",
+									"referenceName": "DS_CSV_raw",
 									"type": "DatasetReference"
 								}
 							],

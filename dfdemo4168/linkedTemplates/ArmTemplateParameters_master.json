@@ -23,6 +23,9 @@
 		"sinklinked_adl_password": {
 			"value": ""
 		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
+		},
 		"adls_sls_properties_typeProperties_url": {
 			"value": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
 		},
@@ -30,6 +33,9 @@
 			"value": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
 		},
 		"cdactivity_ls_properties_typeProperties_url": {
+			"value": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
+		},
+		"csvparquetls_properties_typeProperties_url": {
 			"value": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
 		},
 		"ls_adls_properties_typeProperties_url": {

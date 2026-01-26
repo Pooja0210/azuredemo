@@ -31,6 +31,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'sinklinked_adl'"
 		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
+		},
 		"adls_sls_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
@@ -40,6 +44,10 @@
 			"defaultValue": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
 		},
 		"cdactivity_ls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
+		},
+		"csvparquetls_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
 		},
@@ -108,6 +116,9 @@
 					"sinklinked_adl_password": {
 						"value": "[parameters('sinklinked_adl_password')]"
 					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
 					"adls_sls_properties_typeProperties_url": {
 						"value": "[parameters('adls_sls_properties_typeProperties_url')]"
 					},
@@ -116,6 +127,9 @@
 					},
 					"cdactivity_ls_properties_typeProperties_url": {
 						"value": "[parameters('cdactivity_ls_properties_typeProperties_url')]"
+					},
+					"csvparquetls_properties_typeProperties_url": {
+						"value": "[parameters('csvparquetls_properties_typeProperties_url')]"
 					},
 					"ls_adls_properties_typeProperties_url": {
 						"value": "[parameters('ls_adls_properties_typeProperties_url')]"

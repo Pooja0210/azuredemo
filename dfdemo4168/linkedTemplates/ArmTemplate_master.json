@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "dfdemo4168"
 		},
+		"AzureBlobStorage1LS_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1LS'"
+		},
 		"AzureBlobStorageLinkedservice1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorageLinkedservice1'"
@@ -101,6 +105,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage1LS_connectionString": {
+						"value": "[parameters('AzureBlobStorage1LS_connectionString')]"
 					},
 					"AzureBlobStorageLinkedservice1_connectionString": {
 						"value": "[parameters('AzureBlobStorageLinkedservice1_connectionString')]"

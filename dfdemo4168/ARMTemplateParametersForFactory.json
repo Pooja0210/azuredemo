@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "dfdemo4168"
 		},
+		"AzureBlobStorage1LS_connectionString": {
+			"value": ""
+		},
 		"AzureBlobStorageLinkedservice1_connectionString": {
 			"value": ""
 		},

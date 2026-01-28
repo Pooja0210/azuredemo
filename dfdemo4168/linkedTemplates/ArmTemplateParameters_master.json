@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "dfdemo4168"
 		},
+		"AzureBlobStorageLinkedservice1_connectionString": {
+			"value": ""
+		},
 		"adls_sls_accountKey": {
 			"value": ""
 		},

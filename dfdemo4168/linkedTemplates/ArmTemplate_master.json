@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "dfdemo4168"
 		},
+		"AzureBlobStorageLinkedservice1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorageLinkedservice1'"
+		},
 		"adls_sls_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'adls_sls'"
@@ -97,6 +101,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorageLinkedservice1_connectionString": {
+						"value": "[parameters('AzureBlobStorageLinkedservice1_connectionString')]"
 					},
 					"adls_sls_accountKey": {
 						"value": "[parameters('adls_sls_accountKey')]"

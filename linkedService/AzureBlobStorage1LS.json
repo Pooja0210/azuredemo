@@ -1,0 +1,17 @@
+{
+	"name": "AzureBlobStorage1LS",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"parameters": {
+			"fileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": "DefaultEndpointsProtocol=https;AccountName=ibjobsstorageaccount4168;EndpointSuffix=core.windows.net;",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEM4QTRBMjI2LTQwOTktNEI2Ny04MEVELTE1NUEwNkRERTUzQV84N2UyMjg5OC0wYzNlLTQ0MDItYTczZS1iNWMwZTdlYjEwMTMiDQp9"
+		}
+	}
+}

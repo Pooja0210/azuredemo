@@ -1,0 +1,41 @@
+{
+	"name": "assignment5pipeline1",
+	"properties": {
+		"description": "Pipeline waits 5 seconds and completes.",
+		"activities": [
+			{
+				"name": "assignmentpipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "assignmentpipeline1",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Waitfor5sec",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "assignmentpipeline1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 5
+				}
+			}
+		],
+		"annotations": []
+	}
+}

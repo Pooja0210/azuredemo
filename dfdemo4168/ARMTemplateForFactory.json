@@ -1035,6 +1035,56 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/assignment5pipeline1')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Pipeline waits 5 seconds and completes.",
+				"activities": [
+					{
+						"name": "assignmentpipeline1",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"policy": {
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "assignmentpipeline1",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Waitfor5sec",
+						"type": "Wait",
+						"dependsOn": [
+							{
+								"activity": "assignmentpipeline1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"waitTimeInSeconds": 5
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/assignmentpipeline1')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/assignmentpipeline1')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",

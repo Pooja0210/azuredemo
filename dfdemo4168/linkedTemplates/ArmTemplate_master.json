@@ -39,6 +39,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'sinklinked_adl'"
 		},
+		"logginglinkedService1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'logginglinkedService1'"
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
@@ -78,6 +82,10 @@
 		"sinklinked_adl_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "admin4168"
+		},
+		"logginglinkedService1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -130,6 +138,9 @@
 					"sinklinked_adl_password": {
 						"value": "[parameters('sinklinked_adl_password')]"
 					},
+					"logginglinkedService1_accountKey": {
+						"value": "[parameters('logginglinkedService1_accountKey')]"
+					},
 					"AzureDataLakeStorage1_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
 					},
@@ -159,6 +170,9 @@
 					},
 					"sinklinked_adl_properties_typeProperties_userName": {
 						"value": "[parameters('sinklinked_adl_properties_typeProperties_userName')]"
+					},
+					"logginglinkedService1_properties_typeProperties_url": {
+						"value": "[parameters('logginglinkedService1_properties_typeProperties_url')]"
 					}
 				}
 			},

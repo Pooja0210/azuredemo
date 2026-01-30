@@ -29,6 +29,9 @@
 		"sinklinked_adl_password": {
 			"value": ""
 		},
+		"logginglinkedService1_accountKey": {
+			"value": ""
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
 		},
@@ -58,6 +61,9 @@
 		},
 		"sinklinked_adl_properties_typeProperties_userName": {
 			"value": "admin4168"
+		},
+		"logginglinkedService1_properties_typeProperties_url": {
+			"value": "https://ibjobsstorageaccount4168.dfs.core.windows.net/"
 		}
 	}
 }

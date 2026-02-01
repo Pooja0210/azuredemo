@@ -1,0 +1,25 @@
+{
+	"name": "Scheduler1",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "fullloadpipeline1",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 1,
+				"startTime": "2026-02-01T05:04:00",
+				"endTime": "2026-02-02T05:04:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}

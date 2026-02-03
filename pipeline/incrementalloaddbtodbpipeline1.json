@@ -1,0 +1,131 @@
+{
+	"name": "incrementalloaddbtodbpipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "SELECT ISNULL(MAX(ModifiedDate),'1900-01-01') AS Watermark\nFROM dbo.CustomerDetails_Target;\n\n",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "TargetAzureSqlTable2",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "SELECT *\nFROM dbo.CustomerDetails_Source\nWHERE ModifiedDate > '@{variables('Watermark')}'\n",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceAzureSqlTable2",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "TargetAzureSqlTable2",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Lookup1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Watermark",
+					"value": {
+						"value": "@activity('Lookup1').output.firstRow.Watermark\n",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"WatermarkValue": {
+				"type": "string",
+				"defaultValue": "'1900-01-01'"
+			}
+		},
+		"variables": {
+			"WatermarkValue": {
+				"type": "String"
+			},
+			"Watermark": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}

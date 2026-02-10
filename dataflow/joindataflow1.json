@@ -1,0 +1,72 @@
+{
+	"name": "joindataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Dataflowdataset",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				},
+				{
+					"dataset": {
+						"referenceName": "Dataflowdataset",
+						"type": "DatasetReference"
+					},
+					"name": "source2"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "join1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          Index as string,",
+				"          {Customer Id} as string,",
+				"          {First Name} as string,",
+				"          {Last Name} as string,",
+				"          Company as string,",
+				"          City as string,",
+				"          Country as string,",
+				"          {Phone 1} as string,",
+				"          {Phone 2} as string,",
+				"          Email as string,",
+				"          {Subscription Date} as string,",
+				"          Website as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source(output(",
+				"          Index as string,",
+				"          {Customer Id} as string,",
+				"          {First Name} as string,",
+				"          {Last Name} as string,",
+				"          Company as string,",
+				"          City as string,",
+				"          Country as string,",
+				"          {Phone 1} as string,",
+				"          {Phone 2} as string,",
+				"          Email as string,",
+				"          {Subscription Date} as string,",
+				"          Website as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source2",
+				"source1, source2 join(source1@Index == source2@Index",
+				"     && source1@{Customer Id} == source2@{Customer Id},",
+				"     joinType:'inner',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> join1"
+			]
+		}
+	}
+}
